@@ -4,7 +4,7 @@ import React from "react";
 
 const EveryTicket = () => {
   return (
-    <div className="w-[100%] lg:w-[510px] shadow-sm bg-white p-5 rounded-xl">
+    <div className="w-[100%]  shadow-sm bg-white p-5 rounded-xl">
       <div className="flex justify-between items-center">
         <h1 className="text-[18px] text-xl lg:text-2xl">
           Login Issues - Can't Access Account
@@ -25,7 +25,7 @@ const EveryTicket = () => {
       </div>
       <div className="lg:flex justify-between my-2">
         <div className="flex justify-between  gap-3">
-          <p>#101</p>
+          <p className="opacity-70">#101</p>
           <p className="text-red-500">High Priority</p>
         </div>
         <div className="flex justify-between gap-3 opacity-70">

@@ -9,36 +9,47 @@ import Toast from "./assets/components/ToastContainer";
 import { ToastContainer, toast } from "react-toastify";
 
 function App() {
-   const [tickets,setTickets] = useState([]);
-   const [openedTickets,setOpenTickets] = useState([]);
-   const [isComplete,setIsComplete] = useState(false);
-      useEffect(() => {
-           fetch('../../../public/ticketData.json')
-          .then((res) => res.json())
-          .then((data) => {
-             setTickets(data);
-          })
-  
-      },[]);
-        const handleTicket = (thisTicket) => {
-      setOpenTickets([...openedTickets,thisTicket])
-      setIsComplete(false);
-      console.log(isComplete);
+  const [tickets, setTickets] = useState([]);
+  const [openedTickets, setOpenTickets] = useState([]);
+  const [isComplete, setIsComplete] = useState(false);
+  const [totalCompleted, setTotalCompleted] = useState([]);
+  const [count, setCount] = useState(0);
+  const [loadComplete, setLoadComplete] = useState([]);
+  const [completedTickets, setCompletedTickets] = useState([]);
+  useEffect(() => {
+    fetch("../../../public/ticketData.json")
+      .then((res) => res.json())
+      .then((data) => {
+        setTickets(data);
+      });
+  }, []);
+  const handleTicket = (thisTicket) => {
+    setOpenTickets([...openedTickets, thisTicket]);
+    setLoadComplete([...openedTickets, thisTicket]);
+  };
+  const handleComplete = (thisTicket) => {
+    setCompletedTickets([...completedTickets, thisTicket.id]);
+    setIsComplete(true);
+    setCount(count + 1);
+    setTotalCompleted([...totalCompleted, thisTicket]);
+    const copyOfTickets = [...tickets];
+    const removeItem = thisTicket.id;
+    const index = copyOfTickets.findIndex((ticket) => ticket.id === removeItem);
+    if (index !== -1) {
+      copyOfTickets.splice(index, 1);
+      setTickets(copyOfTickets);
     }
+    const copyOfOpenedTickets = [...openedTickets];
+    const removeItemFromTask = thisTicket.id;
+    const indexOfTask = copyOfOpenedTickets.findIndex(
+      (ticket) => ticket.id === removeItemFromTask
+    );
 
-    const handleComplete = (thisTicket) => {
-        setIsComplete(true);
-        console.log(thisTicket)
-        const copyOfTickets = [...tickets];
-                const removeItem = thisTicket.id;
-                const index = copyOfTickets.findIndex(ticket => ticket.id === removeItem);
-        if(index !== -1){
-            copyOfTickets.splice(index, 1)
-            setTickets(copyOfTickets)
-        }
-
-        
-    toast.success('Completed!', {
+    if (indexOfTask !== -1) {
+      copyOfOpenedTickets.splice(indexOfTask, 1);
+      setOpenTickets(copyOfOpenedTickets);
+    }
+    toast.success("Completed!", {
       position: "top-center",
       autoClose: 3000,
       hideProgressBar: false,
@@ -47,17 +58,24 @@ function App() {
       draggable: true,
       progress: undefined,
       theme: "colored",
-});
+    });
   };
   return (
     <>
-      <ToastContainer/>
+      <ToastContainer />
       <NavBar></NavBar>
-      <Banner openedTickets={openedTickets}></Banner>
-      <CustommerTicket setTickets={setTickets}
-       openedTickets={openedTickets} toast={toast}
-       handleComplete={handleComplete} tickets={tickets} handleTicket={handleTicket}
-       isComplete={isComplete}></CustommerTicket>
+      <Banner openedTickets={openedTickets} count={count}></Banner>
+      <CustommerTicket
+        setTickets={setTickets}
+        openedTickets={openedTickets}
+        toast={toast}
+        handleComplete={handleComplete}
+        tickets={tickets}
+        handleTicket={handleTicket}
+        isComplete={isComplete}
+        loadComplete={loadComplete}
+        completedTickets={completedTickets}
+      ></CustommerTicket>
     </>
   );
 }

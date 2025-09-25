@@ -4,7 +4,7 @@ import { faPlus } from "@fortawesome/free-solid-svg-icons";
 
 const NavBar = () => {
   return (
-    <div className="navbar justify-between  shadow-sm px-10">
+    <div className="navbar justify-between h-[78px] shadow-sm xl:px-10">
       <div className="navbar-start">
         <div className="dropdown">
           <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">
@@ -47,11 +47,11 @@ const NavBar = () => {
             </li>
           </ul>
         </div>
-        <h1 className="text-black font-bold text-2xl">Ticket Bridge</h1>
+        <h1 className="text-black lg:font-bold text-lg lg:text-2xl">Ticket Bridge</h1>
       </div>
       <div className="navbar-center hidden lg:flex"></div>
       <div className="flex justify-between gap-5">
-        <ul className="flex justify-between items-center gap-10">
+        <ul className="hidden lg:flex justify-between items-center gap-10 ">
           <li>
             <a href="">Home</a>
           </li>
@@ -68,8 +68,8 @@ const NavBar = () => {
             <a href="">Contact</a>
           </li>
         </ul>
-        <div className="navbar-end">
-          <a className="btn bg-gradient-to-br from-[#632EE3] to-[#9F62F2] border-none">
+        <div className="">
+          <a className="btn bg-gradient-to-br from-[#632EE3] to-[#9F62F2] border-none text-white">
             <FontAwesomeIcon icon={faPlus} />
             New Ticket
           </a>

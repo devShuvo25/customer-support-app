@@ -1,6 +1,10 @@
-html, body, #root, #app {
+/* html, body, #root, #app {
   margin: 0;
   padding: 0;
-  background: #FFFF !important;
+  background: #F5F5F5 !important;
   color: black ;
 }
+body{
+  max-width: 1600px;
+  margin: 0 auto;
+} */

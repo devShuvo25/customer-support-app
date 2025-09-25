@@ -1,13 +1,13 @@
 
 import './App.css'
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import {faCartShopping} from '@fortawesome/free-solid-svg-icons'
-
-
+// import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import NavBar from './assets/components/navBar'
 
 function App() {
   return (
-   <h1>Hello<FontAwesomeIcon icon={faCartShopping} /></h1>
+   <>
+   <NavBar></NavBar>
+   </>
    
   
   )

@@ -45,7 +45,7 @@ const NavBar = () => {
           </li>
           </ul>
         </div>
-        <h1 className="text-black lg:font-bold text-lg lg:text-2xl">
+        <h1 className="bg-gradient-to-br from-[#632EE3] to-[#54CF68] bg-clip-text text-transparent lg:font-bold text-lg lg:text-2xl ">
           Ticket Bridge
         </h1>
       </div>

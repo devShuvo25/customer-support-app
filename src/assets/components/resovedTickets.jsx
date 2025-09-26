@@ -11,7 +11,7 @@ const ResovedTickets = ({resolved,removeFromResolved}) => {
                 <p className='flex items-center justify-normal gap-2 text-green-600 font-semibold'><FontAwesomeIcon className='text-green-500 '
             icon={faCircleCheck}></FontAwesomeIcon>Completed</p>
             </div>
-            <a onClick={() => removeFromResolved(resolved)} className='cursor-pointer font-semibold text-red-600'>Cliclk to remove</a>
+            <a onClick={() => removeFromResolved(resolved)} className='cursor-pointer font-semibold text-red-600'>Click to remove</a>
         </div>
     );
 };

@@ -7,11 +7,11 @@ import NavBar from "./assets/components/navBar";
 import TaskStatus from "./assets/components/taskStatus";
 import Toast from "./assets/components/ToastContainer";
 import { ToastContainer, toast } from "react-toastify";
+import Footer from "./assets/components/footer";
 
 function App() {
   const [tickets, setTickets] = useState([]);
   const [openedTickets, setOpenTickets] = useState([]);
-  const [isComplete, setIsComplete] = useState(false);
   const [totalCompleted, setTotalCompleted] = useState([]);
   const [count, setCount] = useState(0);
   const [loadComplete, setLoadComplete] = useState([]);
@@ -46,7 +46,6 @@ function App() {
   };
   const handleComplete = (thisTicket) => {
     setCompletedTickets([...completedTickets, thisTicket.id]);
-    setIsComplete(true);
     setCount(count + 1);
     setTotalCompleted([...totalCompleted, thisTicket]);
     const copyOfTickets = [...tickets];
@@ -85,7 +84,6 @@ const removeFromResolved = (thisTicket) => {
       totalResolved.splice(indexOfRemoveItem, 1);
       setTotalCompleted(totalResolved);
     }
-  console.log(totalResolved)
 }
   return (
     <>
@@ -99,13 +97,13 @@ const removeFromResolved = (thisTicket) => {
         handleComplete={handleComplete}
         tickets={tickets}
         handleTicket={handleTicket}
-        isComplete={isComplete}
         loadComplete={loadComplete}
         completedTickets={completedTickets}
         totalCompleted={totalCompleted}
         isPending={isPending}
         removeFromResolved={removeFromResolved}
       ></CustommerTicket>
+      <Footer></Footer>
     </>
   );
 }

@@ -6,4 +6,9 @@ body{
 
 ul li{
     opacity: 80%;
+    font-weight: 500;
+}
+ul li:hover{
+    color: #632EE3;
+    transition: 0.5s;
 }

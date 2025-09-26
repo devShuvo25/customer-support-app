@@ -46,7 +46,7 @@ const CustommerTicket = ({
             ))}
           </div>
           <h1 className="text-xl opacity-80 font-semibold ms-3 my-2">Resolved Task</h1>
-          <p className="ms-3 text-lg opacity-70">{!isComplete? "No resolved task yet": ''}</p>
+          <p className="ms-3 text-lg opacity-70">{totalCompleted.length === 0? "No resolved task yet": ''}</p>
             {
               totalCompleted.map(resolved => 
                 <ResovedTickets key={resolved.id} resolved={resolved} removeFromResolved={removeFromResolved}></ResovedTickets>

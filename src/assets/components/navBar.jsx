@@ -29,20 +29,20 @@ const NavBar = () => {
             className="menu menu-sm dropdown-content bg-base-100 rounded-box z-1 mt-3 w-52 p-2 shadow"
           >
             <li>
-            <a href="">Home</a>
-          </li>
-          <li>
-            <a href="">FAQ</a>
-          </li>
-          <li>
-            <a href="">ChangeLog</a>
-          </li>
-          <li>
-            <a href="">Download</a>
-          </li>
-          <li>
-            <a href="">Contact</a>
-          </li>
+              <a href="">Home</a>
+            </li>
+            <li>
+              <a href="">FAQ</a>
+            </li>
+            <li>
+              <a href="">ChangeLog</a>
+            </li>
+            <li>
+              <a href="">Download</a>
+            </li>
+            <li>
+              <a href="">Contact</a>
+            </li>
           </ul>
         </div>
         <h1 className="bg-gradient-to-br from-[#632EE3] to-[#54CF68] bg-clip-text text-transparent lg:font-bold text-lg lg:text-2xl ">

@@ -11,7 +11,7 @@ const CustommerTicket = ({
   completedTickets,
   isPending,
   totalCompleted,
-  removeFromResolved
+  removeFromResolved,
 }) => {
   return (
     <div className="lg:p-5">
@@ -32,7 +32,9 @@ const CustommerTicket = ({
           <h1 className="text-xl opacity-80 font-semibold ms-3 my-2">
             Task Status
           </h1>
-          <p className="ms-3 text-lg opacity-70 mb-8">{ !isPending? "Select a ticket to add to Task Status":''}</p>
+          <p className="ms-3 text-lg opacity-70 mb-8">
+            {!isPending ? "Select a ticket to add to Task Status" : ""}
+          </p>
           <div className="bg-white  rounded-xl">
             {loadComplete.map((openedTicket) => (
               <TaskStatus
@@ -45,13 +47,19 @@ const CustommerTicket = ({
               ></TaskStatus>
             ))}
           </div>
-          <h1 className="text-xl opacity-80 font-semibold ms-3 my-2">Resolved Task</h1>
-          <p className="ms-3 text-lg opacity-70">{totalCompleted.length === 0? "No resolved task yet": ''}</p>
-            {
-              totalCompleted.map(resolved => 
-                <ResovedTickets key={resolved.id} resolved={resolved} removeFromResolved={removeFromResolved}></ResovedTickets>
-              )
-            }
+          <h1 className="text-xl opacity-80 font-semibold ms-3 my-2">
+            Resolved Task
+          </h1>
+          <p className="ms-3 text-lg opacity-70">
+            {totalCompleted.length === 0 ? "No resolved task yet" : ""}
+          </p>
+          {totalCompleted.map((resolved) => (
+            <ResovedTickets
+              key={resolved.id}
+              resolved={resolved}
+              removeFromResolved={removeFromResolved}
+            ></ResovedTickets>
+          ))}
         </div>
       </div>
     </div>

@@ -2,7 +2,6 @@ import { useEffect, useState } from "react";
 import "./App.css";
 import Banner from "./assets/components/banner";
 import CustommerTicket from "./assets/components/custommerTicket";
-// import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import NavBar from "./assets/components/navBar";
 import TaskStatus from "./assets/components/taskStatus";
 import Toast from "./assets/components/ToastContainer";
@@ -16,7 +15,7 @@ function App() {
   const [count, setCount] = useState(0);
   const [loadComplete, setLoadComplete] = useState([]);
   const [completedTickets, setCompletedTickets] = useState([]);
-  const [isPending,setIsPending] = useState(false);
+  const [isPending, setIsPending] = useState(false);
   useEffect(() => {
     fetch("/ticketData.json")
       .then((res) => res.json())
@@ -26,21 +25,21 @@ function App() {
   }, []);
   const handleTicket = (thisTicket) => {
     thisTicket.status = "In Progress";
-    setIsPending(true)
-    !openedTickets.includes(thisTicket)?
-      setOpenTickets([...openedTickets, thisTicket]):
-      toast.warn('Already In Progress !', {
-        position: "top-center",
-        autoClose: 3000,
-        hideProgressBar: false,
-        closeOnClick: false,
-        pauseOnHover: true,
-        draggable: true,
-        progress: undefined,
-        theme: "colored",
-});;
-    
-    if(!openedTickets.includes(thisTicket)){
+    setIsPending(true);
+    !openedTickets.includes(thisTicket)
+      ? setOpenTickets([...openedTickets, thisTicket])
+      : toast.warn("Already In Progress !", {
+          position: "top-center",
+          autoClose: 3000,
+          hideProgressBar: false,
+          closeOnClick: false,
+          pauseOnHover: true,
+          draggable: true,
+          progress: undefined,
+          theme: "colored",
+        });
+
+    if (!openedTickets.includes(thisTicket)) {
       setLoadComplete([...openedTickets, thisTicket]);
     }
   };
@@ -76,15 +75,17 @@ function App() {
       theme: "colored",
     });
   };
-const removeFromResolved = (thisTicket) => {
-  const totalResolved = [...totalCompleted]
-  const removeItemFromResolved = thisTicket.id;
-    const indexOfRemoveItem = totalResolved.findIndex((ticket) => ticket.id === removeItemFromResolved);
+  const removeFromResolved = (thisTicket) => {
+    const totalResolved = [...totalCompleted];
+    const removeItemFromResolved = thisTicket.id;
+    const indexOfRemoveItem = totalResolved.findIndex(
+      (ticket) => ticket.id === removeItemFromResolved
+    );
     if (indexOfRemoveItem !== -1) {
       totalResolved.splice(indexOfRemoveItem, 1);
       setTotalCompleted(totalResolved);
     }
-}
+  };
   return (
     <>
       <ToastContainer />

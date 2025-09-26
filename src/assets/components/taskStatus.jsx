@@ -1,5 +1,4 @@
 import React from "react";
-
 const TaskStatus = ({ handleComplete, openedTicket, completedTickets }) => {
   const { title, id } = openedTicket;
   const isComplete = completedTickets.includes(id);
@@ -13,7 +12,7 @@ const TaskStatus = ({ handleComplete, openedTicket, completedTickets }) => {
           isComplete ? "!bg-[#B9F8CF] !text-[#02A53B]" : "bg-[#02A53B]"
         } text-white`}
       >
-        {!isComplete? 'Complete': 'Completed'}
+        {!isComplete ? "Complete" : "Completed"}
       </button>
     </div>
   );

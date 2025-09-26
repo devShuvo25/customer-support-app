@@ -10,10 +10,10 @@ const TaskStatus = ({ handleComplete, openedTicket, completedTickets }) => {
         onClick={() => handleComplete(openedTicket)}
         disabled={isComplete}
         className={`btn ${
-          isComplete ? "bg-white !text-[#02A53B]" : "bg-[#02A53B]"
+          isComplete ? "!bg-[#B9F8CF] !text-[#02A53B]" : "bg-[#02A53B]"
         } text-white`}
       >
-        Complete
+        {!isComplete? 'Complete': 'Completed'}
       </button>
     </div>
   );

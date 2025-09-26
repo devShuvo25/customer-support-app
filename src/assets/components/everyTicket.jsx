@@ -7,14 +7,14 @@ const EveryTicket = ({ ticket, handleTicket }) => {
   return (
     <div
       onClick={() => handleTicket(ticket)}
-      className="w-[100%]  shadow-sm bg-white p-5 rounded-xl"
+      className="w-[100%]  shadow-sm bg-white p-5 rounded-xl my-4 cursor-pointer "
     >
       <div className="flex justify-between items-center">
         <h1 className="text-[18px] text-xl lg:text-2xl">{title}</h1>
         <a
           className={`font-bold text-gray-600 flex gap-2 items-center ${
             status === "Open" ? "bg-[#B9F8CF]" : "bg-[#F8F3B9]"
-          } py-3 rounded-[50px] px-6`}
+          } py-3 rounded-[50px] px-5`}
           href=""
         >
           <div

@@ -16,16 +16,33 @@ function App() {
   const [count, setCount] = useState(0);
   const [loadComplete, setLoadComplete] = useState([]);
   const [completedTickets, setCompletedTickets] = useState([]);
+  const [isPending,setIsPending] = useState(false);
   useEffect(() => {
-    fetch("../../../public/ticketData.json")
+    fetch("/ticketData.json")
       .then((res) => res.json())
       .then((data) => {
         setTickets(data);
       });
   }, []);
   const handleTicket = (thisTicket) => {
-    setOpenTickets([...openedTickets, thisTicket]);
-    setLoadComplete([...openedTickets, thisTicket]);
+    thisTicket.status = "In Progress";
+    setIsPending(true)
+    !openedTickets.includes(thisTicket)?
+      setOpenTickets([...openedTickets, thisTicket]):
+      toast.warn('Already In Progress !', {
+        position: "top-center",
+        autoClose: 3000,
+        hideProgressBar: false,
+        closeOnClick: false,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: "colored",
+});;
+    
+    if(!openedTickets.includes(thisTicket)){
+      setLoadComplete([...openedTickets, thisTicket]);
+    }
   };
   const handleComplete = (thisTicket) => {
     setCompletedTickets([...completedTickets, thisTicket.id]);
@@ -60,6 +77,16 @@ function App() {
       theme: "colored",
     });
   };
+const removeFromResolved = (thisTicket) => {
+  const totalResolved = [...totalCompleted]
+  const removeItemFromResolved = thisTicket.id;
+    const indexOfRemoveItem = totalResolved.findIndex((ticket) => ticket.id === removeItemFromResolved);
+    if (indexOfRemoveItem !== -1) {
+      totalResolved.splice(indexOfRemoveItem, 1);
+      setTotalCompleted(totalResolved);
+    }
+  console.log(totalResolved)
+}
   return (
     <>
       <ToastContainer />
@@ -75,6 +102,9 @@ function App() {
         isComplete={isComplete}
         loadComplete={loadComplete}
         completedTickets={completedTickets}
+        totalCompleted={totalCompleted}
+        isPending={isPending}
+        removeFromResolved={removeFromResolved}
       ></CustommerTicket>
     </>
   );

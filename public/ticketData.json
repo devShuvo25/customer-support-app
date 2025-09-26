@@ -14,7 +14,7 @@
     "description": "Transaction not going through for credit card payment.",
     "customer": "Robert Smith",
     "priority": "Critical",
-    "status": "In Progress",
+    "status": "Open",
     "createdAt": "2025-09-19"
   },
   {
@@ -50,7 +50,7 @@
     "description": "App crashes immediately after opening on Android 14.",
     "customer": "Liam Wilson",
     "priority": "Critical",
-    "status": "In Progress",
+    "status": "Open",
     "createdAt": "2025-09-15"
   },
   {
@@ -77,7 +77,7 @@
     "description": "Push notifications not being received on iOS.",
     "customer": "Isabella Garcia",
     "priority": "Medium",
-    "status": "In Progress",
+    "status": "Open",
     "createdAt": "2025-09-12"
   },
   {
@@ -113,7 +113,7 @@
     "description": "Sales report shows incorrect figures.",
     "customer": "Charlotte Hall",
     "priority": "High",
-    "status": "In Progress",
+    "status": "Open",
     "createdAt": "2025-09-08"
   },
   {

@@ -5,9 +5,9 @@ import { faInfo } from '@fortawesome/free-solid-svg-icons';
 
 const Footer = () => {
     return (
-        <div className='bg-black text-white lg:py-14'>
+        <div className='bg-black text-white py-10 lg:py-14'>
         <div className='bg-black text-white grid lg:grid-cols-5 grid-cols-1
-        py-10 px-5  lg:px-8 lg:ps-30 gap-8 lg:gap-20 text-center lg:text-left'>
+         px-5  lg:px-8 lg:ps-30 gap-8 lg:gap-20 text-center lg:text-left'>
             <div>
                 <h1 className='text-2xl mb-2'>Ticket Bridge</h1>
                 <p className='opacity-60 text-[13px]'>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Porro quia nesciunt voluptatem ab dolor. Laboriosam quia recusandae eligendi nostrum tenetur?</p>
@@ -46,7 +46,7 @@ const Footer = () => {
                 </ul>
             </div>
         </div>
-        <p className='text-white text-center opacity-65 text-[13px]'>© 2025 Shuvo Mallik. All rights reserved.</p>
+        <p className='text-white text-center opacity-65 text-[13px] my-5 lg:my-0'>© 2025 Shuvo Mallik. All rights reserved.</p>
         </div>
     );
 };

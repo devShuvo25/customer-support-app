@@ -9,7 +9,7 @@ const Banner = ({ openedTickets, count }) => {
         className="relative w-[100%] lg:[50%] h-[150px] lg:h-[250px] bg-gradient-to-br
               from-[#632EE3] to-[#9F62F2] border-none rounded-xl"
       >
-        <div className="absolute left-[40%] top-[35%] text-center space-y-5">
+        <div className="absolute left-[37%] top-[35%] text-center space-y-5">
           <h1 className=" text-white lg:text-4xl">In Progress</h1>
           <span className="text-3xl lg:text-5xl text-center font-bold text-white">
             {openedTickets.length}
@@ -23,7 +23,7 @@ const Banner = ({ openedTickets, count }) => {
         />
       </div>
       <div className="relative w-[100%] lg:[50%] h-[150px] lg:h-[250px]  bg-gradient-to-br from-[#54CF68] to-[#00827A] border-none rounded-xl">
-        <div className="absolute left-[40%] top-[35%] text-center space-y-5">
+        <div className="absolute left-[39%] top-[35%] text-center space-y-5">
           <h1 className=" text-white lg:text-4xl">Resolved</h1>
           <span className="text-3xl lg:text-5xl text-center font-bold text-white">
             {count}
